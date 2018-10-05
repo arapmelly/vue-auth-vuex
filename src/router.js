@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from './store.js'
-import Home from './views/Home.vue'
+import store from './modules/auth/store.js'
+import Index from './views/Index.vue'
 import About from './views/About.vue'
-import Login from './components/Login.vue'
-import Secure from './components/Secure.vue'
-import Register from './components/Register.vue'
+import Login from './modules/auth/components/LoginComponent.vue'
+import Core from './modules/core/components/CoreComponent.vue'
+
 
 Vue.use(Router)
 
@@ -14,23 +14,13 @@ let router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register
+      name: 'index',
+      component: Index
     },
     {
       path: '/secure',
       name: 'secure',
-      component: Secure,
+      component: Core,
       meta: { 
         requiresAuth: true
       }
