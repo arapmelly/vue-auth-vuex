@@ -12,22 +12,28 @@
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
     			
-    		 <navComponent />
+    		 <LoginNavComponent />
 
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
-        
-        <div class="container-fluid">
         	
-        	<div class="row">
-        		<div class="col-lg-4"></div>
-        		<div class="col-lg-4">
-        			<LoginComponent/>
-        		</div>
+        	
+       	
+        	<div class=" container-fluid">
+        	
+        		<div class="row" style="margin-top:20px;">
+        			<div class="col-lg-6 ">
+        				
+        			</div>
+        			<div class="col-lg-6 companyInfo">
+        				<LoginComponent/>
+        			</div>
 
+        		</div>
         	</div>
-        </div>
+
+      
        
   
   
@@ -36,13 +42,13 @@
 
 <script type="text/javascript">
 
-	import navComponent from '../modules/core/components/NavComponent.vue'
+	import LoginNavComponent from '../modules/core/components/LoginNavComponent.vue'
 	import LoginComponent from '../modules/auth/components/LoginComponent.vue'
 
 	export default {
 
 		components: {
-			navComponent,
+			LoginNavComponent,
 			LoginComponent
 		},
 
@@ -66,3 +72,11 @@
 	}
 
 </script>
+
+<style>
+
+.companyInfo {
+
+	
+}
+</style>

@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from './modules/auth/store.js'
+import store from './store/'
 import Index from './views/Index.vue'
-import About from './views/About.vue'
-import Login from './modules/auth/components/LoginComponent.vue'
-import Core from './modules/core/components/CoreComponent.vue'
+import Dashboard from './views/dashboard.vue'
+//import Login from './modules/auth/components/LoginComponent.vue'
+//import Core from './modules/core/components/CoreComponent.vue'
+import { mapGetters, mapState } from 'vuex'
 
 
 Vue.use(Router)
@@ -18,28 +19,26 @@ let router = new Router({
       component: Index
     },
     {
-      path: '/secure',
-      name: 'secure',
-      component: Core,
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
       meta: { 
         requiresAuth: true
       }
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
+
   if(to.matched.some(record => record.meta.requiresAuth)) {
-    if (store.getters.isLoggedIn) {
+    const token = localStorage.getItem('token')
+    
+    if (token) {
       next()
       return
     }
-    next('/login') 
+    next('/') 
   } else {
     next() 
   }
