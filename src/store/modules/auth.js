@@ -6,7 +6,7 @@ import axios from 'axios'
 const state = {
   		status: '',
   		token: localStorage.getItem('token') || '',
-  		user : {}
+  		user : localStorage.getItem('user') || {}
 }
 
 
@@ -36,6 +36,8 @@ const actions = {
 
 	                axios({url: API_URL+'/init', method: 'GET'}).then(resp => {
 	                	const user = resp.data.auth_user
+
+	                	localStorage.setItem('user', user)
 
 	                	commit('auth_user', user)
 	                	commit('auth_success', token)
@@ -91,6 +93,7 @@ const mutations = {
 	  	logout(state){
 	    	state.status = ''
 	    	state.token = ''
+	    	state.user = ''
 	  	},
 
 	  	auth_user(state, user){

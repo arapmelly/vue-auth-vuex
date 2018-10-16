@@ -18,8 +18,24 @@
              
                     <ul id="sidebarnav" class="list-unstyled">
                         <li class="active nav-item">
-                            <a href="#" class="waves-effect" @click="dashboard_tab ^= true">
+                            <a href="#" class="waves-effect" @click="newTab('Dashboard')">
                                 <i class="ti ti-desktop"></i>&nbsp;&nbsp;Dashboard</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#bookingSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-receipt"></i>&nbsp;&nbsp;
+                        Booking Management</a>
+                            
+                            <ul class="collapse list-unstyled" id="bookingSubmenu">
+                                <li>
+                                    <a href="#" @click="newTab('Tickets')">Tickets</a>
+                                </li>
+                                <li>
+                                    <a href="#" @click="newTab('Reservations')">Reservations</a>
+                                </li>
+                                
+                            </ul>
                         </li>
 
                         <li class="nav-item">
@@ -29,13 +45,13 @@
                     		
                     		<ul class="collapse list-unstyled" id="homeSubmenu">
                         		<li>
-                            		<a href="#" @click="users_tab ^= true">Users</a>
+                            		<a href="#" @click="newTab('Users')">Users</a>
                         		</li>
                         		<li>
-                            		<a href="#" @click="roles_tab ^= true">Roles</a>
+                            		<a href="#" @click="newTab('Roles')">Roles</a>
                         		</li>
                         		<li>
-                            		<a href="#" @click="permissions_tab ^= true">Permissions</a>
+                            		<a href="#" @click="newTab('Permissions')">Permissions</a>
                         		</li>
                     		</ul>
                 		</li>
@@ -43,72 +59,129 @@
 
                 		<li class="nav-item">
                     		<a href="#priceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
-                            <i class="ti ti-desktop"></i>&nbsp;&nbsp;
+                            <i class="ti ti-wallet"></i>&nbsp;&nbsp;
                         Price Management</a>
                     		
                     		<ul class="collapse list-unstyled" id="priceSubmenu">
                         		<li>
-                            		<a href="#">Home 1</a>
+                            		<a href="#" @click="newTab('Prices')">Prices</a>
                         		</li>
                         		<li>
-                            		<a href="#">Home 2</a>
+                            		<a href="#" @click="newTab('Offers')">Offers</a>
                         		</li>
                         		<li>
-                            		<a href="#">Home 3</a>
+                            		<a href="#" @click="newTab('Discounts')">Discounts</a>
                         		</li>
                     		</ul>
                 		</li>
 
                         
                         <li class="nav-item">
-                            <a href="#priceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
-                            <i class="ti ti-desktop"></i>&nbsp;&nbsp;
-                        Price Management</a>
+                            <a href="#routeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-location-pin"></i>&nbsp;&nbsp;
+                        Route Management</a>
                             
-                            <ul class="collapse list-unstyled" id="priceSubmenu">
+                            <ul class="collapse list-unstyled" id="routeSubmenu">
                                 <li>
-                                    <a href="#">Home 1</a>
+                                    <a href="#" @click="newTab('Towns')">Towns</a>
                                 </li>
                                 <li>
-                                    <a href="#">Home 2</a>
+                                    <a href="#" @click="newTab('Branches')">Branches</a>
                                 </li>
                                 <li>
-                                    <a href="#">Home 3</a>
+                                    <a href="#" @click="newTab('Routes')">Routes</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#fleetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-truck"></i>&nbsp;&nbsp;
+                        Fleet Management</a>
+                            
+                            <ul class="collapse list-unstyled" id="fleetSubmenu">
+                                <li>
+                                    <a href="#" @click="newTab('Buses')">Buses</a>
+                                </li>
+                                <li>
+                                    <a href="#" @click="newTab('Bus Types')">Bus Types</a>
+                                </li>
+                                <li>
+                                    <a href="#" @click="newTab('Seat Types')">Seat Types</a>
+                                </li>
+                                <li>
+                                    <a href="#" @click="newTab('Staff')">Staff</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#priceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">Price Management</a>
+                            <a href="#scheduleSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-alarm-clock"></i>&nbsp;&nbsp;
+                        Schedule Management</a>
                             
-                            <ul class="collapse list-unstyled" id="priceSubmenu">
+                            <ul class="collapse list-unstyled" id="scheduleSubmenu">
                                 <li>
-                                    <a href="#">Home 1</a>
+                                    <a href="#" @click="newTab('Schedules')">Schedules</a>
                                 </li>
                                 <li>
-                                    <a href="#">Home 2</a>
+                                    <a href="#" @click="newTab('Bus Hires')">Bus Hires</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-user"></i>&nbsp;&nbsp;
+                        Customer Management</a>
+                            
+                            <ul class="collapse list-unstyled" id="customerSubmenu">
+                                <li>
+                                    <a href="#" @click="newTab('Customers')">Customers</a>
                                 </li>
                                 <li>
-                                    <a href="#">Home 3</a>
+                                    <a href="#" @click="newTab('Loyalty Points')">Loyalty Points</a>
                                 </li>
+                                
+                            </ul>
+                        </li>
+
+
+                        
+
+
+                        <li class="nav-item">
+                            <a href="#expenseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-files"></i>&nbsp;&nbsp;
+                        Expense Management</a>
+                            
+                            <ul class="collapse list-unstyled" id="expenseSubmenu">
+                                <li>
+                                    <a href="#" @click="newTab('Petty Cash')">Petty Cash</a>
+                                </li>
+                                
+                                
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a href="#priceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">Price Management</a>
+                            <a href="#reportsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle waves-effect">
+                            <i class="ti ti-bar-chart"></i>&nbsp;&nbsp;
+                        Reports Management</a>
                             
-                            <ul class="collapse list-unstyled" id="priceSubmenu">
+                            <ul class="collapse list-unstyled" id="reportsSubmenu">
                                 <li>
-                                    <a href="#">Home 1</a>
+                                    <a href="#" @click="newTab('Petty Cash')">Petty Cash</a>
                                 </li>
-                                <li>
-                                    <a href="#">Home 2</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home 3</a>
-                                </li>
+                                
+                                
                             </ul>
                         </li>
+
+                        
                     </ul>
                     
                 </nav>
@@ -123,33 +196,39 @@
             
             
 <div style="margin-top:60px">
+    
 
-            <ul class="nav nav-tabs" role="tablist" >
-                <li class="nav-item">
-                    <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab">Dashboard</a>
-                </li>
-                
-                <li class="nav-item" v-if="users_tab">
-                    <a class="nav-link" href="#users" role="tab" data-toggle="tab">Users</a>
-                </li>
-                
-                <li class="nav-item" v-if="roles_tab">
-                    <a class="nav-link" href="#roles" role="tab" data-toggle="tab">Roles</a>
-                </li>
-            </ul>
+       <b-card no-body>
+      <b-tabs >
 
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active" id="dashboard" v-if="dashboard_tab">
-                    <h1>Dashboad</h1>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="users" v-if="users_tab">
-                    bbb
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="roles" v-if="roles_tab">
-                    ccc
-                </div>
-            </div>
+        <!-- Render Tabs -->
+        <b-tab :title="`${i}`"  v-for="i in tabs" :key="i" active>
+          
+            <div style="padding-top:20px;">
+            <span v-if="i == 'Dashboard'"><DashboardComponent /></span>
+            <span v-if="i == 'Users'"><UserComponent /></span>
+        </div>
+
+          <br/>
+          
+          <!-- <b-btn size="sm" variant="danger" class="float-right" @click="()=>closeTab(i)">
+            Close tab
+          </b-btn> -->
+        </b-tab>
+
+
+        <!-- New Tab Button (Using tabs slot) -->
+        <!-- <b-nav-item slot="tabs" @click.prevent="newTab" href="#">
+          +
+        </b-nav-item> -->
+
+        <!-- Render this if no tabs -->
+        <div slot="empty" class="text-center text-muted">
+          <DashboardComponent></DashboardComponent>
+          
+        </div>
+      </b-tabs>
+    </b-card>
 
 
 </div>
@@ -161,6 +240,8 @@
    
   </div>
 </template>
+
+
 
 <script type="text/javascript">
 	
@@ -180,17 +261,46 @@
                 roles_tab: false,
                 users_tab: false,
                 permissions_tab: false,
-
+                tabs: [],
+                tabCounter: 0
 
 
 			}
 		},
 
         methods : {
-            
+
+            setPermissionsTab(){
+
+                //get the current active tab and set to false
+                //
+
+                this.permissions_tab = true
+                this.dashboard_tab = false
+                this.roles_tab = false
+                this.users_tab = false
+            },
+
+
+            closeTab (x) {
+      for (let i = 0; i < this.tabs.length; i++) {
+        if (this.tabs[i] === x) {
+          this.tabs.splice(i, 1)
         }
-		
-	}
+      }
+    },
+        
+        newTab (tabname) {
+
+       
+            this.closeTab(tabname)
+            this.tabs.push(tabname)
+        
+    
+        }
+    
+    }
+}
 
 </script>
 

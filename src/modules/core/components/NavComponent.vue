@@ -87,6 +87,7 @@ import { mapGetters, mapState } from 'vuex'
 
     mounted(){
        
+       
     },
 
     data(){
@@ -105,6 +106,8 @@ import { mapGetters, mapState } from 'vuex'
                 this.$router.push('/')
             })
         }
+
+
     }
   }
 </script>

@@ -3,6 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store/'
 import Axios from 'axios'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'vuetify/dist/vuetify.min.css'
+//import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue);
+
+import Vuetify from 'vuetify'
+ 
+Vue.use(Vuetify)
+
+
+
 
 
 require('./config')
